@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
 use App\Book;
 use Illuminate\Http\Request;
 
@@ -14,17 +15,13 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('books.books');
-    }
+        $authors = Author::all();
+        $books = Book::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('books.books.index', [
+            'authors' => $authors,
+            'books' => $books
+        ]);
     }
 
     /**
@@ -35,7 +32,30 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string',
+            'author_id' => 'required|numeric',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'publisher' => 'required|string'
+        ]);
+
+        $book = Book::create([
+            'title' => $request->title,
+            'author_id' => $request->author_id,
+            'description' => $request->description,
+            'price' => $request->price,
+            'publisher' => $request->publisher
+        ]);
+        if (!$book) {
+            return redirect()
+                ->route('books.index')
+                ->with('error', 'Unknown error occurred.');
+        }
+        
+        return redirect()
+            ->route('books.index')
+            ->with('success', 'Book created successfully.');
     }
 
     /**
@@ -57,7 +77,12 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        $authors = Author::all();
+
+        return view('books.books.edit', [
+            'authors' => $authors,
+            'book' => $book
+        ]);
     }
 
     /**
@@ -69,7 +94,24 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $request->validate([
+            'title' => 'required|string',
+            'author_id' => 'required|numeric',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'publisher' => 'required|string'
+        ]);
+
+        $book->title = $request->title;
+        $book->author_id = $request->author_id;
+        $book->description = $request->description;
+        $book->price = $request->price;
+        $book->publisher = $request->publisher;
+        $book->save();
+        
+        return redirect()
+            ->route('books.index')
+            ->with('success', 'Book updated successfully.');
     }
 
     /**
@@ -80,6 +122,10 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+
+        return redirect()
+            ->route('books.index')
+            ->with('success', 'Book deleted successfully.');
     }
 }

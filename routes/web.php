@@ -28,7 +28,7 @@ Route::group(['middleware' => 'role'], function () {
   
   Route::resources([
     'books' => 'BookController',
-    'book-categories' => 'BookCategoryController',
+    'categories' => 'CategoryController',
     'rents' => 'RentController',
     'authors' => 'AuthorController',
     'users' => 'UserController',
