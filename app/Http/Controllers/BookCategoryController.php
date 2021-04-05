@@ -14,7 +14,7 @@ class BookCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('books.categories');
     }
 
     /**

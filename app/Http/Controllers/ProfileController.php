@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Author;
 use Illuminate\Http\Request;
 
-class AuthorsController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,17 @@ class AuthorsController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.profile');
+    }
+
+    /**
+     * Display the user settingss.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function settings()
+    {
+        return view('user.settings');
     }
 
     /**
@@ -41,10 +50,10 @@ class AuthorsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Authors  $authors
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Author $authors)
+    public function show($id)
     {
         //
     }
@@ -52,10 +61,10 @@ class AuthorsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Authors  $authors
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Author $authors)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +73,10 @@ class AuthorsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Authors  $authors
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $authors)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +84,10 @@ class AuthorsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Authors  $authors
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $authors)
+    public function destroy($id)
     {
         //
     }
