@@ -32,6 +32,7 @@ Route::group(['middleware' => 'role'], function () {
     'rents' => 'RentController',
     'authors' => 'AuthorController',
     'users' => 'UserController',
+    'roles' => 'RoleController',
     'profile' => 'ProfileController',
   ]);
 
