@@ -49,7 +49,24 @@
             timer: 3000,
             timerProgressBar: true
         })
+
     </script>
+    @if (session('success'))
+    <script>
+        Toast.fire({
+            icon: 'success',
+            title: @json(session('success'))
+        })
+    </script>
+    @elseif (session('error'))
+    <script>
+        Toast.fire({
+            icon: 'error',
+            title: @json(session('error'))
+        })
+    </script>
+    @endif
+    
 
     <!-- CoreUI JS -->
     <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>

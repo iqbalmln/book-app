@@ -18,7 +18,7 @@ class CreateAuthorsTable extends Migration
             $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->string('email_address')->unique();
-            $table->text('biodata');
+            $table->text('biodata')->nullable();
             $table->string('profile_picture')->nullable();
             $table->timestamps();
         });

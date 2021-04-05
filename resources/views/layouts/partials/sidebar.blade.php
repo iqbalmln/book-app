@@ -42,7 +42,7 @@
                     <a class="c-sidebar-nav-link" href="{{ url('/books') }}"><span class="c-sidebar-nav-icon"></span> Books</a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="{{ url('/book-categories') }}"><span class="c-sidebar-nav-icon"></span> Categories</a>
+                    <a class="c-sidebar-nav-link" href="{{ url('/categories') }}"><span class="c-sidebar-nav-icon"></span> Categories</a>
                 </li>
             </ul>
         </li>

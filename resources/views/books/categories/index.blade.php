@@ -33,23 +33,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 0; $i < 5; $i++) <tr>
-                                <td>{{$i}}</td>
-                                <td>HAHHAHA</td>
-
+                            @foreach ($categories as $key=>$category) 
+                            <tr>
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $category->category }}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-info">
-                                        <i class="cil-lightbulb"></i>
-                                    </button>
-                                    <button class="btn btn-sm btn-success">
+                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-success">
                                         <i class="cil-pencil"></i>
-                                    </button>
+                                    </a>
                                     <button class="btn btn-sm btn-danger">
                                         <i class="cil-trash"></i>
                                     </button>
                                 </td>
-                                </tr>
-                                @endfor
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <ul class="pagination">
@@ -73,16 +70,22 @@
                 <h4 class="modal-title">Create New Category</h4>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <input type="text" name="category" id="category" class="form-control" placeholder="Enter Category title ...">
+            <form action="{{ route('categories.store') }}" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" name="category" id="category" class="form-control @error('category') is-invalid @enderror" placeholder="Enter Category title ...">
+                        @error('category')
+                            <span class="text-sm text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary" type="button">Save changes</button>
-            </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit">Save changes</button>
+                </div>
+            </form>
         </div>
         <!-- /.modal-content-->
     </div>
