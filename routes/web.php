@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
+
+Route::view('/books', 'books.books');
+Route::view('/books-categories', 'books.categories');
+
+Route::view('/user/username', 'user.profile');
+Route::view('/user/username/edit', 'user.settings');
