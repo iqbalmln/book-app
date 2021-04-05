@@ -76,14 +76,14 @@
 
         <li class="c-sidebar-nav-title">Quick Settings</li>
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ url('/user/username') }}">
+            <a class="c-sidebar-nav-link" href="{{ url('/profile') }}">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="/icons/sprites/free.svg#cil-user"></use>
                 </svg>
                 Account Profile</a>
         </li>
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ url('/user/username/edit') }}">
+            <a class="c-sidebar-nav-link" href="{{ url('/profile/' . Auth::id() . '/settings') }}">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="/icons/sprites/free.svg#cil-cog"></use>
                 </svg>
