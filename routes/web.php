@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::view('/', 'dashboard');
 
 Route::view('/books', 'books.books');
 Route::view('/books-categories', 'books.categories');
 
 Route::view('/user/username', 'user.profile');
 Route::view('/user/username/edit', 'user.settings');
+
+Route::view('/auth/login', 'auth.login');
+Route::view('/auth/register', 'auth.register');
