@@ -4,6 +4,14 @@
 <link rel="stylesheet" href="{{ asset('vendors/@coreui/chartjs/css/coreui-chartjs.css') }}">
 @endpush
 
+@section('breadcrumbs')
+<!-- Breadcrumb-->
+<ol class="breadcrumb border-0 m-0">
+    <li class="breadcrumb-item active">Dashboard</li>
+    <!-- Breadcrumb Menu-->
+</ol>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-sm-6 col-lg-3">

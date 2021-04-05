@@ -4,13 +4,14 @@
 <!-- Breadcrumb-->
 <ol class="breadcrumb border-0 m-0">
     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Account Profile</li>
+    <li class="breadcrumb-item">Manage Authors</li>
+    <li class="breadcrumb-item active">Authors</li>
 </ol>
 <!-- Breadcrumb Menu-->
 @endsection
 
 @section('content')
 <div>
-    Profile
+    Authors Page
 </div>
 @endsection

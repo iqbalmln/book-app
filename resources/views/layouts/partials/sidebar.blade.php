@@ -23,7 +23,7 @@
     </div>
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="index.html">
+            <a class="c-sidebar-nav-link" href="{{ url('/') }}">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="/icons/sprites/free.svg#cil-speedometer"></use>
                 </svg>

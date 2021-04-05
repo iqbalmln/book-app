@@ -23,3 +23,8 @@ Route::view('/user/username/edit', 'user.settings');
 
 Route::view('/auth/login', 'auth.login');
 Route::view('/auth/register', 'auth.register');
+
+Route::view('/rents', 'rents.rents');
+
+Route::view('/authors', 'user.authors');
+Route::view('/users', 'user.users');
