@@ -21,6 +21,11 @@
 
     <div class="c-wrapper c-fixed-components">
         @include('layouts.partials.header')
+                <div class="c-subheader px-3">
+                @yield('breadcrumbs')
+            </div>
+        </header>
+        
         <div class="c-body">
             <main class="c-main">
                 <div class="container-fluid">
