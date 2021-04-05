@@ -13,6 +13,10 @@
 @endsection
 
 @section('content')
+{{
+    Auth::user()->first_name
+}}
+
 <div class="row">
     <div class="col-sm-6 col-lg-3">
         <div class="card text-white bg-primary">
@@ -1012,4 +1016,13 @@
         }
     });
 </script>
+
+@if (session('success'))
+<script>
+    Toast.fire({
+        icon: 'success',
+        title: @json(session('success'))
+    })
+</script>
+@endif
 @endpush

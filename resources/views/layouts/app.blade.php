@@ -38,6 +38,19 @@
         </div>
     </div>
 
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Page Script -->
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true
+        })
+    </script>
+
     <!-- CoreUI JS -->
     <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
 

@@ -21,34 +21,35 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card-group">
-                    <div class="card p-4">
+                    <form class="card p-4" action="{{ route('auth.login.post') }}" method="POST">
+                        @csrf
                         <div class="card-body">
                             <h1>Login</h1>
                             <p class="text-muted">Sign In to your account</p>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend"><span class="input-group-text">
                                         <svg class="c-icon">
-                                            <use xlink:href="/icons/sprites/free.svg#cil-user"></use>
+                                            <use xlink:href="/icons/sprites/free.svg#cil-at"></use>
                                         </svg></span></div>
-                                <input class="form-control" type="text" placeholder="Username">
+                                <input class="form-control" type="email" name="email_address" placeholder="Email Address">
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend"><span class="input-group-text">
                                         <svg class="c-icon">
                                             <use xlink:href="/icons/sprites/free.svg#cil-lock-locked"></use>
                                         </svg></span></div>
-                                <input class="form-control" type="password" placeholder="Password">
+                                <input class="form-control" type="password" name="password" placeholder="Password">
                             </div>
                             <div class="row">
                                 <div class="col-6">
                                     <button class="btn btn-primary px-4" type="button">Login</button>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <button class="btn btn-link px-0" type="button">Forgot password?</button>
+                                    <button class="btn btn-link px-0" type="submit">Forgot password?</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                     <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
                         <div class="card-body text-center">
                             <div>
@@ -63,8 +64,31 @@
         </div>
     </div>
 
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <!-- CoreUI JS -->
     <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+
+    <!-- Page Script -->
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true
+        })
+    </script>
+
+    @if (session('success'))
+    <script>
+        Toast.fire({
+            icon: 'success',
+            title: @json(session('success'))
+        })
+    </script>
+    @endif
 </body>
 
 </html>
