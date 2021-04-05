@@ -90,11 +90,12 @@
                 Account Settings</a>
         </li>
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ url('/logout') }}">
+            <a class="c-sidebar-nav-link" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout').submit()">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="/icons/sprites/free.svg#cil-power-standby"></use>
                 </svg>
                 Logout</a>
+            <form action="{{ route('logout') }}" id="logout" class="d-none" method="POST">@csrf</form>
         </li>
     </ul>
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
