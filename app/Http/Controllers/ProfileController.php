@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -13,7 +16,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('user.profile');
+        $user = User::with('role')->where('id', Auth::id())->get();
+        
+        return view('user.profile', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -23,7 +30,13 @@ class ProfileController extends Controller
      */
     public function settings()
     {
-        return view('user.settings');
+        $user = User::with('role')->where('id', Auth::id())->get();
+        $roles = Role::all();
+        
+        return view('user.settings', [
+            'user' => $user,
+            'roles' => $roles
+        ]);
     }
 
     /**
